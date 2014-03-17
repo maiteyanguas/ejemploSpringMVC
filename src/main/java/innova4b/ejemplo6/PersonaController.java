@@ -11,10 +11,8 @@ import innova4b.ejemplo6.Persona;
 public class PersonaController {
 	
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public String show(ModelMap model) {
+	public void show(ModelMap model) {
 		model.addAttribute("persona", buildPersona());
-		return "persona/show";
-
 	}
 	
 	private Persona buildPersona(){
