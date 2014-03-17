@@ -8,5 +8,6 @@
 	Nombre: ${persona.nombre} </br>
 	Apellido: ${persona.apellido}</br>
 	Año de nacimiento: ${persona.anoNacimiento}</br>
+	<a href="/ejemplo6/persona/new">Persona Nueva</a>
 </body>
 </html>
