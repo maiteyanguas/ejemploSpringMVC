@@ -1,9 +1,12 @@
 package innova4b.ejemplo6;
 
+import java.util.HashMap;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
 import innova4b.ejemplo6.Persona;
 
 @Controller
@@ -11,8 +14,11 @@ import innova4b.ejemplo6.Persona;
 public class PersonaController {
 	
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public void show(ModelMap model) {
-		model.addAttribute("persona", buildPersona());
+	public ModelAndView show() {
+		HashMap<String, Persona> model = new HashMap<String, Persona>();
+		model.put("persona", buildPersona());
+		ModelAndView mv = new ModelAndView("persona/show",model);
+		return mv;
 	}
 	
 	private Persona buildPersona(){
