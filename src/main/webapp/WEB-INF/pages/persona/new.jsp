@@ -17,8 +17,8 @@
 				<td><form:input path="apellido"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="edad">Edad:</form:label></td>
-				<td><form:input path="edad"/></td>
+				<td><form:label path="fechaNacimiento">Fecha de Nacimiento (dd/mm/yyyy):</form:label></td>
+				<td><form:input path="fechaNacimiento"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Enviar" /></td>
