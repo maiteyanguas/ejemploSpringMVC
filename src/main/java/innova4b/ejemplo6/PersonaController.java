@@ -1,7 +1,5 @@
 package innova4b.ejemplo6;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
 import innova4b.ejemplo6.Persona;
 
 @Controller
@@ -25,7 +21,6 @@ public class PersonaController {
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public void show(ModelMap model,HttpServletRequest request) {
 		if (null==request.getSession().getAttribute("persona"))
-		//if (!model.containsAttribute("persona"))
 			model.addAttribute("persona",buildPersona("Maite","Yanguas",30));
 		else
 			model.addAttribute("persona",(Persona)request.getSession().getAttribute("persona"));
@@ -38,10 +33,9 @@ public class PersonaController {
 		int edad = request.getParameter("edad")!=null?Integer.parseInt(request.getParameter("edad")):0;
 		//model.addAttribute("persona", buildPersona(nombre,apellido,edad));
 		//return "persona/show";
-
 		//tengo que hacer un redirect, porque si no puedo volver a enviar el formulario. Pero pierdo el modelo
 		HttpSession session = request.getSession(true);			
-		session.setAttribute("persona", buildPersona(nombre,apellido,edad));
+		session.setAttribute("persona", buildPersona(nombre,apellido,edad));	
 		return "redirect:/ejemplo6/persona/show";
 
 	}
