@@ -22,17 +22,14 @@ public class PersonaController {
 	}
 	
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public void show(ModelMap model,HttpServletRequest request) {
-		if (null==request.getSession().getAttribute("persona"))
-			model.addAttribute("persona",buildPersona("Maite","Yanguas",30));
-		else
-			model.addAttribute("persona",(Persona)request.getSession().getAttribute("persona"));
+	public void show(ModelMap model) {	
+		if (!model.containsAttribute("persona"))
+			model.addAttribute("persona",buildPersona("Maite","Yanguas",30));		
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(HttpSession session, @RequestParam String nombre, @RequestParam String apellido, @RequestParam int edad) {
-		//tengo que hacer un redirect, porque si no puedo volver a enviar el formulario. Pero pierdo el modelo		
-		session.setAttribute("persona", buildPersona(nombre,apellido,edad));
+	public String add(@RequestParam String nombre, @RequestParam String apellido, @RequestParam int edad, RedirectAttributes redirect) {		
+		redirect.addFlashAttribute("persona", buildPersona(nombre,apellido,edad));
 		return "redirect:/ejemplo6/persona/show";
 	}
 	
