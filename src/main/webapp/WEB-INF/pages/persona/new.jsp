@@ -6,24 +6,24 @@
 </head>
 <body>
 	<h2>Persona nueva:</h2>
-	<form method="POST" action="/ejemplo6/persona/add">
+	<form:form method="POST" modelAttribute="persona" action="/ejemplo6/persona/add">
 		<table>
 			<tr>
-				<td>Nombre:</td>
-				<td><input type="text" name="nombre"></td>
+				<td><form:label path="nombre">Nombre:</form:label></td>
+				<td><form:input path="nombre"/></td>
 			</tr>
 			<tr>
-				<td>Apellido:</td>
-				<td><input type="text" name="apellido"></td>
+				<td><form:label path="apellido">Apellido:</form:label></td>
+				<td><form:input path="apellido"/></td>
 			</tr>
 			<tr>
-				<td>Edad:</td>
-				<td><input type="text" name="edad"></td>
+				<td><form:label path="edad">Edad:</form:label></td>
+				<td><form:input path="edad"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Enviar" /></td>
 			</tr>
 		</table>
-	</form>
+	</form:form>
 </body>
 </html>
