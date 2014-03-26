@@ -1,9 +1,10 @@
 package innova4b.ejemplo6;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -27,9 +28,13 @@ public class PersonaController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(@ModelAttribute("persona") Persona persona, RedirectAttributes redirect) {		
-		redirect.addFlashAttribute("persona", persona);
-		return "redirect:/ejemplo6/persona/show";
+	public String add(@Valid Persona persona, BindingResult result, RedirectAttributes redirect) {		
+		if (result.hasErrors()) {
+			return "persona/new";
+		} else {
+			redirect.addFlashAttribute("persona", persona);
+			return "redirect:/ejemplo6/persona/show";
+		}
 	}
 
 	

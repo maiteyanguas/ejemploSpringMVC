@@ -3,9 +3,15 @@ package innova4b.ejemplo6;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+
 public class Persona {	
+	@NotEmpty
 	private String nombre;
+	@NotEmpty
 	private String apellido;
+	@Range(min = 1, max = 150)
 	private int edad;
 
 	public String getNombre() {
