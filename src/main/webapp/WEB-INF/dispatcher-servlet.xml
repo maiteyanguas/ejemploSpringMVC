@@ -15,6 +15,20 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
 	
 	<mvc:annotation-driven/>
 	
+	<bean id="localeResolver"
+    	class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+    	<property name="defaultLocale" value="es"/>
+	</bean>
+	
+	<mvc:interceptors> 
+		<bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="language" />
+		</bean>
+	</mvc:interceptors> 	
+	
+	
+	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
