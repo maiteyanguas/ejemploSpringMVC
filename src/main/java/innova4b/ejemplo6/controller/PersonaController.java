@@ -1,10 +1,10 @@
-package innova4b.ejemplo6;
+package innova4b.ejemplo6.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import innova4b.ejemplo6.Persona;
+import innova4b.ejemplo6.model.Persona;
 
 @Controller
 @RequestMapping("/persona")
