@@ -7,7 +7,7 @@
 	Los datos de la persona son: </br>
 	Nombre: ${persona.nombre} </br>
 	Apellido: ${persona.apellido}</br>
-	Año de nacimiento: ${persona.anoNacimiento}</br>
+	Edad: ${persona.edad}</br>
 	<a href="/ejemplo6/persona/new">Persona Nueva</a>
 </body>
 </html>
