@@ -1,4 +1,4 @@
-package innova4b.ejemplo6;
+package innova4b.ejemplo6.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import innova4b.ejemplo6.Persona;
+import innova4b.ejemplo6.model.Persona;
 
 @Controller
 @RequestMapping("/persona")
