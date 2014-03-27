@@ -1,15 +1,25 @@
 package innova4b.ejemplo6.model;
 
 
+import java.sql.Date;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-public class Persona {	
+public class Persona {
+	@NotEmpty
 	private String nombre;
+	@NotEmpty
 	private String apellido;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Past
+	@NotNull
 	private LocalDate fechaNacimiento;
 
 	public String getNombre() {
@@ -45,6 +55,10 @@ public class Persona {
 
 	public void setFechaNacimiento(String fechaNacimiento2) {
 		this.fechaNacimiento = LocalDate.parse(fechaNacimiento2,org.joda.time.format.DateTimeFormat.forPattern("dd/MM/yyyy"));
+	}
+	
+	public String getFechaNacimientoAsString() {
+		return fechaNacimiento.toString(org.joda.time.format.DateTimeFormat.forPattern("yyyy-MM-dd"));
 		
 	}
 
