@@ -1,7 +1,5 @@
-package innova4b.ejemplo6;
+package innova4b.ejemplo6.model;
 
-import java.util.Calendar;
-import java.util.Date;
 
 public class Persona {	
 	private String nombre;
@@ -31,13 +29,4 @@ public class Persona {
 	public void setEdad(int edad){
 		this.edad = edad;
 	}
-	
-	public int getAnoNacimiento(){
-		int anoNacimiento=0;
-		if (this.edad!=0)
-		anoNacimiento = Calendar.getInstance().get(Calendar.YEAR)-this.edad;
-		return anoNacimiento;
-		
-	}
-
 }

@@ -1,4 +1,4 @@
-package innova4b.ejemplo6;
+package innova4b.ejemplo6.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import innova4b.ejemplo6.Persona;
+import innova4b.ejemplo6.model.Persona;
 
 @Controller
 @RequestMapping("/persona")
@@ -33,7 +33,8 @@ public class PersonaController {
 		int edad = request.getParameter("edad")!=null?Integer.parseInt(request.getParameter("edad")):0;
 		//model.addAttribute("persona", buildPersona(nombre,apellido,edad));
 		//return "persona/show";
-		//tengo que hacer un redirect, porque si no puedo volver a enviar el formulario. Pero pierdo el modelo
+		//tengo que hacer un redirect, porque si no, puedo volver a enviar el formulario. 
+		//Pero pierdo el modelo. Lo guardo en sesión
 		HttpSession session = request.getSession(true);			
 		session.setAttribute("persona", buildPersona(nombre,apellido,edad));	
 		return "redirect:/ejemplo6/persona/show";
