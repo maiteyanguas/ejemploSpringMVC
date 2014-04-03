@@ -1,4 +1,4 @@
-package innova4b.ejemplo6.controller;
+package innova4b.ejemploSpringMVC.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import innova4b.ejemplo6.model.Persona;
+import innova4b.ejemploSpringMVC.model.Persona;
 
 @Controller
 @RequestMapping("/persona")
@@ -37,7 +37,7 @@ public class PersonaController {
 		//Pero pierdo el modelo. Lo guardo en sesión
 		HttpSession session = request.getSession(true);			
 		session.setAttribute("persona", buildPersona(nombre,apellido,edad));	
-		return "redirect:/ejemplo6/persona/show";
+		return "redirect:/ejemploSpringMVC/persona/show";
 
 	}
 	
