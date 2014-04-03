@@ -4,7 +4,7 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
    
-  <display-name>Ejemplo6</display-name>
+  <display-name>EjemploSpringMVC</display-name>
   
   <servlet>
       <servlet-name>dispatcher</servlet-name>
@@ -14,7 +14,7 @@
 
    <servlet-mapping>
       <servlet-name>dispatcher</servlet-name>
-      <url-pattern>/ejemplo6/*</url-pattern>
+      <url-pattern>/ejemploSpringMVC/*</url-pattern>
    </servlet-mapping>
    
 </web-app>
