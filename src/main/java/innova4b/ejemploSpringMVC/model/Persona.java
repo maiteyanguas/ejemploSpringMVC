@@ -1,4 +1,4 @@
-package innova4b.ejemplo6.model;
+package innova4b.ejemploSpringMVC.model;
 
 
 import org.hibernate.validator.constraints.NotEmpty;

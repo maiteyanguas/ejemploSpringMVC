@@ -1,4 +1,4 @@
-package innova4b.ejemplo6.controller;
+package innova4b.ejemploSpringMVC.controller;
 
 import javax.validation.Valid;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import innova4b.ejemplo6.model.Persona;
+import innova4b.ejemploSpringMVC.model.Persona;
 
 @Controller
 @RequestMapping("/persona")
@@ -33,7 +33,7 @@ public class PersonaController {
 			return "persona/new";
 		} else {
 			redirect.addFlashAttribute("persona", persona);
-			return "redirect:/ejemplo6/persona/show";
+			return "redirect:/ejemploSpringMVC/persona/show";
 		}
 	}
 
