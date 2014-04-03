@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h2>Persona nueva:</h2>
-	<form:form method="POST" modelAttribute="persona" action="/ejemplo6/persona/add">
+	<form:form method="POST" modelAttribute="persona" action="/ejemploSpringMVC/persona/add">
 		<table>
 			<tr>
 				<td><form:label path="nombre">Nombre:</form:label></td>
