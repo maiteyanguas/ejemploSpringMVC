@@ -1,4 +1,4 @@
-package innova4b.ejemplo6.controller;
+package innova4b.ejemploSpringMVC.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import innova4b.ejemplo6.model.Persona;
+import innova4b.ejemploSpringMVC.model.Persona;
 
 @Controller
 @RequestMapping("/persona")
@@ -33,7 +33,7 @@ public class PersonaController {
 	public String add(HttpSession session, @RequestParam String nombre, @RequestParam String apellido, @RequestParam int edad) {
 		//tengo que hacer un redirect, porque si no puedo volver a enviar el formulario. Pero pierdo el modelo		
 		session.setAttribute("persona", buildPersona(nombre,apellido,edad));
-		return "redirect:/ejemplo6/persona/show";
+		return "redirect:/ejemploSpringMVC/persona/show";
 	}
 	
 	private Persona buildPersona(String nombre, String apellido, int edad){
