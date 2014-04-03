@@ -19,7 +19,7 @@
 </head>
 <body>
 	<h2>Persona nueva:</h2>
-	<form:form method="POST" modelAttribute="persona" action="/ejemplo6/persona/add">
+	<form:form method="POST" modelAttribute="persona" action="/ejemploSpringMVC/persona/add">
 	<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>
 			<tr>
