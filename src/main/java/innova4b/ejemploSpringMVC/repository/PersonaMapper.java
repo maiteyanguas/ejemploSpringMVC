@@ -1,6 +1,6 @@
-package innova4b.ejemplo6.repository;
+package innova4b.ejemploSpringMVC.repository;
 
-import innova4b.ejemplo6.model.Persona;
+import innova4b.ejemploSpringMVC.model.Persona;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

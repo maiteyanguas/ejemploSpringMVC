@@ -1,7 +1,5 @@
-package innova4b.ejemplo6.model;
+package innova4b.ejemploSpringMVC.model;
 
-
-import java.sql.Date;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;

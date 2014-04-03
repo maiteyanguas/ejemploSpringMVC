@@ -1,6 +1,7 @@
-package innova4b.ejemplo6.controller;
+package innova4b.ejemploSpringMVC.controller;
 
-import java.util.List;
+import innova4b.ejemploSpringMVC.model.Persona;
+import innova4b.ejemploSpringMVC.repository.JdbcPersonaDao;
 
 import javax.validation.Valid;
 
@@ -11,9 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import innova4b.ejemplo6.model.Persona;
-import innova4b.ejemplo6.repository.JdbcPersonaDao;
 
 @Controller
 @RequestMapping("/persona")
@@ -46,7 +44,7 @@ public class PersonaController {
 			return "persona/new";
 		} else {
 			jdbcPersonaDao.insert(persona);
-			return "redirect:/ejemplo6/persona/list";
+			return "redirect:/ejemploSpringMVC/persona/list";
 		}
 	}
 

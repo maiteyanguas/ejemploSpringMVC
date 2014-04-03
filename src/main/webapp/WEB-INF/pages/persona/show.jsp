@@ -8,6 +8,6 @@
 	Nombre: ${persona.nombre} </br>
 	Apellido: ${persona.apellido}</br>
 	Edad: ${persona.edad}</br>
-	<a href="/ejemplo6/persona/new">Persona Nueva</a>
+	<a href="/ejemploSpringMVC/persona/new">Persona Nueva</a>
 </body>
 </html>
