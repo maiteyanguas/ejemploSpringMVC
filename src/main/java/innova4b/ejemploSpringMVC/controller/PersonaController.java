@@ -48,7 +48,6 @@ public class PersonaController {
 		}
 	}
 
-	
 	private Persona buildPersona(String nombre, String apellido, String fechaNacimiento){
 		Persona persona = new Persona();
 		persona.setNombre(nombre);
