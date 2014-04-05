@@ -36,7 +36,6 @@ public class PersonaDao {
 	}
 
 	public void update(Persona persona) {
-		System.out.println(persona.getId());
 		sessionFactory.getCurrentSession().update(persona);
 	}
 
