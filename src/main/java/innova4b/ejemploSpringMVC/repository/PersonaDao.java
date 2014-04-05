@@ -1,7 +1,4 @@
 package innova4b.ejemploSpringMVC.repository;
-
-import innova4b.ejemploSpringMVC.model.Persona;
-
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -11,8 +8,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import innova4b.ejemploSpringMVC.model.Persona;
+
 @Repository
-public class JdbcPersonaDao  implements PersonaDAO {
+public class PersonaDao {
 	  private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
@@ -35,3 +34,4 @@ public class JdbcPersonaDao  implements PersonaDAO {
 	}
 
 }
+
