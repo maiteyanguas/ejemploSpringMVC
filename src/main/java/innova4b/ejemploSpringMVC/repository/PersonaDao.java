@@ -2,6 +2,7 @@ package innova4b.ejemploSpringMVC.repository;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,6 +24,20 @@ public class PersonaDao {
 
 	public void insert(Persona persona) {
 		sessionFactory.getCurrentSession().save(persona);	
+	}
+
+	public void delete(Long id) {
+		Session session= sessionFactory.getCurrentSession();
+		sessionFactory.getCurrentSession().delete(session.get(Persona.class, id));	
+	}
+
+	public Persona get(Long id) {
+		return (Persona) sessionFactory.getCurrentSession().get(Persona.class, id);	
+	}
+
+	public void update(Persona persona) {
+		System.out.println(persona.getId());
+		sessionFactory.getCurrentSession().update(persona);
 	}
 
 }
