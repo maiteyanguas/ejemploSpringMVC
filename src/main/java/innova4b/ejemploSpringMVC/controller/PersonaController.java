@@ -1,7 +1,7 @@
 package innova4b.ejemploSpringMVC.controller;
 
 import innova4b.ejemploSpringMVC.model.Persona;
-import innova4b.ejemploSpringMVC.repository.JdbcPersonaDao;
+import innova4b.ejemploSpringMVC.repository.PersonaDao;
 
 import javax.validation.Valid;
 
@@ -17,8 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/persona")
 public class PersonaController {
 	
-	@Autowired 
-	JdbcPersonaDao jdbcPersonaDao;
+	@Autowired  
+	PersonaDao PersonaDao;
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPersona(ModelMap model) {
@@ -28,7 +28,7 @@ public class PersonaController {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(ModelMap model) {
-		model.addAttribute("personas",jdbcPersonaDao.list());
+		model.addAttribute("personas",PersonaDao.list());
 		return "persona/list";
 	}
 	
@@ -43,7 +43,7 @@ public class PersonaController {
 		if (result.hasErrors()) {
 			return "persona/new";
 		} else {
-			jdbcPersonaDao.insert(persona);
+			PersonaDao.insert(persona);
 			return "redirect:/ejemploSpringMVC/persona/list";
 		}
 	}
