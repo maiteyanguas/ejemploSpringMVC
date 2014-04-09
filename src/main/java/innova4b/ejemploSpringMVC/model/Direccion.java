@@ -22,11 +22,9 @@ public class Direccion {
 	@Column(name="codigo_postal")
 	private Integer codigoPostal;
 	private String municipio;
-	
 	@ManyToOne
 	@JoinColumn(name = "persona_id", referencedColumnName = "id")
 	private Persona persona;
-	
 	
 	public long getId() {
 		return id;

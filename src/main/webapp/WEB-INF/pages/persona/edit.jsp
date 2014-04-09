@@ -50,5 +50,19 @@
 			</tr>
 		</table>
 	</form:form>
+	<div>
+		<h2>Editar Direccion</h2>
+		<form:form method="POST" modelAttribute="persona" action="/ejemploSpringMVC/persona/update">
+		</form:form>
+	</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+	function funciton(){
+		var chuchu = "blabla";
+		
+	}
+})
+
+</script>
 </html>

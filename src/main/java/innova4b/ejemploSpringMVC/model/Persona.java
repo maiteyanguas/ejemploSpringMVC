@@ -41,7 +41,7 @@ public class Persona {
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate fechaNacimiento;
 	
-	//En la clase direccion la propiedad de tipo "persona" es "persona"
+	//En la clase direccion la propiedad de tipo "Persona" se llama "persona"
 	//FetcType.Lazy indica a Hibernate que no popule las direcciones a no ser que se lo pida
 	@OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
 	private List<Direccion> direcciones;
