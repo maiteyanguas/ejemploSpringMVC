@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <style>
@@ -38,6 +39,12 @@
 				<td><form:input path="fechaNacimiento"/></td>
 				<td><form:errors path="fechaNacimiento" cssClass="error" /></td>
 			</tr>
+			<c:forEach var="direccion" items="${persona.direcciones}" varStatus="status">
+				<tr>
+					<td>Direccion ${status.index+1} </td>
+					<td colspan="2">${direccion.direccionSimple}</td>
+				</tr>
+			</c:forEach>
 			<tr>
 				<td colspan="2"><input type="submit" value="Enviar"/> <a href="/ejemploSpringMVC/persona/list">Cancelar</a></td>
 			</tr>

@@ -1,8 +1,12 @@
 package innova4b.ejemploSpringMVC.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -22,14 +26,6 @@ public class Persona {
 	@GeneratedValue 
 	private long id;
 	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	@NotEmpty
 //	@Column(name="nombre")
 //	no es necesario si el nombre de la columna es igual
@@ -38,13 +34,25 @@ public class Persona {
 	@NotEmpty
 	private String apellido;
 	
-
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Past
 	@NotNull
 	//Para poder usar la clase LocalDate con Hibernate
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate fechaNacimiento;
+	
+	//En la clase direccion la propiedad de tipo "persona" es "persona"
+	//FetcType.Lazy indica a Hibernate que no popule las direcciones a no ser que se lo pida
+	@OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
+	private List<Direccion> direcciones;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -84,6 +92,14 @@ public class Persona {
 	public String getFechaNacimientoAsString() {
 		return fechaNacimiento.toString(org.joda.time.format.DateTimeFormat.forPattern("yyyy-MM-dd"));
 		
+	}
+	
+	public List<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
 	}
 
 }

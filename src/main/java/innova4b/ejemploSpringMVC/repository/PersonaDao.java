@@ -32,8 +32,12 @@ public class PersonaDao {
 	}
 
 	public Persona get(Long id) {
-		return (Persona) sessionFactory.getCurrentSession().get(Persona.class, id);	
+		Session session = sessionFactory.getCurrentSession();
+		Persona persona = (Persona)session.createQuery("select distinct p from Persona as p left join fetch p.direcciones where p.id="+id).list().get(0);
+		return persona;
 	}
+	
+	
 
 	public void update(Persona persona) {
 		sessionFactory.getCurrentSession().update(persona);
