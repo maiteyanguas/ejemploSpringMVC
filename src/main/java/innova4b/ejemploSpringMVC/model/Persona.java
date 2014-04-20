@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.LocalDate;
@@ -42,8 +44,10 @@ public class Persona {
 	private LocalDate fechaNacimiento;
 	
 	//En la clase direccion la propiedad de tipo "Persona" se llama "persona"
-	//FetcType.Lazy indica a Hibernate que no popule las direcciones a no ser que se lo pida
-	@OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
+	//FetcType: por defecto es LAZY: Hibernate no popula las direcciones a no ser que se pida
+	//FetcType.EAGER indica a Hibernate que popule las direcciones cuando obtiene las personas
+	@OneToMany(mappedBy = "persona", fetch=FetchType.EAGER)
+	@Cascade(CascadeType.ALL)
 	private List<Direccion> direcciones;
 	
 	public long getId() {

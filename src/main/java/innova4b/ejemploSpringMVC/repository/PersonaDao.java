@@ -30,11 +30,9 @@ public class PersonaDao {
 		Session session= sessionFactory.getCurrentSession();
 		sessionFactory.getCurrentSession().delete(session.get(Persona.class, id));	
 	}
-
+	
 	public Persona get(Long id) {
-		Session session = sessionFactory.getCurrentSession();
-		Persona persona = (Persona)session.createQuery("select distinct p from Persona as p left join fetch p.direcciones where p.id="+id).list().get(0);
-		return persona;
+		return (Persona)sessionFactory.getCurrentSession().get(Persona.class, id);
 	}
 
 	public void update(Persona persona) {
